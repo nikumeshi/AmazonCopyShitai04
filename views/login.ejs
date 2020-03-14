@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+    <title><%=title%></title>
+</head>
+<body>
+
+<div class="wrapper">
+    <h2><%=title%></h2>
+
+    <form action="login" method="post">
+<!--        name:<input type="text" name="name" required><br>-->
+        mailAddress:<input type="email" name="mail" required><br>
+        password:<input type="password" name="password" required><br>
+        <input type="submit" value="login">
+
+    </form>
+    <% if (typeof noUser !== "undefined"){%>
+    <p><%=noUser%></p>
+    <%}%>
+    <a href="/" >トップへ戻る</a>
+</div>
+
+</body>
+</html>

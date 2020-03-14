@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <title><%=title%></title>
+</head>
+<body>
+
+<div class="wrapper">
+    <h2><%=title%></h2>
+
+    <table border="1">
+        <% detail.forEach(function (item) {%>
+
+        <tr><th colspan="2"><%=item.goodsName%></th></tr>
+        <tr><td rowspan="5"><img src="images/<%=item.goodsImage%>" width="30%" height="30%"></td></tr>
+        <tr><td> vol:<%=item.goodsVol%></td></tr>
+        <tr><td> price:<%=item.goodsPrice%></td></tr>
+        <tr><td> area:<%=item.goodsArea%></td></tr>
+        <tr>
+            <td>
+                <form action="addCart" method="post" onsubmit="return false;">
+                    <input type="hidden" name="detail" value="<%=JSON.stringify(detail)%>">
+                    <input type="hidden" name="code" value="<%=item.goodsCode%>">
+                    <select name="quantity">
+                        <% for (let i=1; i<=9; i++){%>
+                            <option value="<%=i%>"><%=i%></option>
+                        <%}%>
+                    </select>
+                    <button type="submit">add to Cart</button>
+                </form>
+            </td>
+        </tr>
+        <tr><td colspan="2"><%=item.goodsComment%></td></tr>
+        <%})%>
+    </table>
+
+    <a href="/" >トップへ戻る</a>
+
+</div>
+
+</body>
+</html>

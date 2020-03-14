@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <title><%=title%></title>
+</head>
+<body>
+
+<div class="wrapper">
+    <h2><%=title%>></h2>
+    <form action="search_result" method="post">
+        <p>
+            how<br>
+            <input type="radio" name="r1" value="1" checked>name
+            <input type="radio" name="r1" value="2">price
+
+        </p>
+
+        <p>
+            keyword:<br>
+            <input type="text" name="keyword" class="input" required>
+        </p>
+
+        <button type="submit" class="submit">search</button>
+        <button type="reset">reset</button>
+    </form>
+
+    <table border="1">
+        <thead>
+            <tr><td rowspan="2">image</td><td>name</td><td>volume</td><td>price</td><td rowspan="2"> </td></tr>
+            <tr><td colspan="3">comment</td></tr>
+        </thead>
+        <% result.forEach(function (searchItem) { %>
+        <tbody>
+        <tr>
+            <td rowspan="2"><img src="images/<%=searchItem.goodsImage%>" width="30%" height="30%"></td>
+            <td><%=searchItem.goodsName%></td>
+            <td><%=searchItem.goodsVol%></td>
+            <td><%=searchItem.goodsPrice%></td>
+            <td rowspan="2">
+                <form action="goods_detail" method="post">
+                    <input type="hidden" name="code" value="<%=searchItem.goodsCode%>">
+                    <button type="submit">detail</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3"><%=searchItem.goodsComment%></td>
+        </tr>
+        </tbody>
+        <%}) %>
+    </table>
+</div>
+
+</body>
+</html>

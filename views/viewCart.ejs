@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+</head>
+<body>
+
+<div class="wrapper">
+    <h2><%= title%></h2>
+
+    <table border="1">
+        <tr><th>code</th><th>quantity</th></tr>
+        <% cartContent.forEach(function (cartItem) { %>
+            <tr><td><%=cartItem.goodsCode%></td><td><%=cartItem.total%></td></tr>
+        <%}) %>
+    </table>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+
+  <div class="wrapper">
+    <h2><%= title%></h2>
+    <form action="search_result" method="post">
+      <p>
+        how:<br>
+        <input type="radio" name="r1" value="1" checked>name
+        <input type="radio" name="r1" value="2">price
+      </p>
+
+      <p>
+        keyword:<br>
+        <input type="text" name="keyword" class="input" required>
+      </p>
+
+      <button type="submit" class="submit">search</button>
+      <button type="reset">reset</button>
+    </form>
+
+    <form action="login">
+      <button type="submit">login</button>
+    </form>
+
+    <form action="logout">
+      <button type="submit" <%if (!isLogin){%> disabled <%}%>>logout</button>
+    </form>
+
+    <p>welcome, <%=userName%></p>
+    <form action="view_cart" method="post">
+      <button type="submit" >cart</button>
+    </form>
+
+  </div>
+
+  </body>
+</html>
